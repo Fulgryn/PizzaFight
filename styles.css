@@ -1,0 +1,302 @@
+@font-face {
+    font-family: 'VCR';
+    src: url('font/VCR.ttf') format('truetype');
+}
+
+html {
+    height: 100%;
+    padding: 0;
+    /*font-family: 'VCR';*/
+}
+
+p {
+    font-family: 'VCR';
+    font-size: 1.5em;
+    color: #ffffff;
+}
+#title img {
+    max-width: 100%;
+    max-height: 90%;
+    margin:1%
+}
+
+img#icon_ready{
+    max-width: 35%; 
+    top:15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+div.icon.clock{
+    height: 60px;
+    width: 60px;
+    background: url(img/icon2.png) no-repeat center center;
+    background-size: 40px;
+    background-color: #232323;
+}
+div.space{
+    height: 60px;
+    width: 12px;
+    background-color: #232323;
+}
+div.icon.sauce{
+    height: 60px;
+    width: 60px;
+}
+div.icon.sauce.pizza{
+    background: url(img/icon5.png) no-repeat center center;
+    background-size: 49px;
+    background-color: #232323;
+}
+div.icon.sauce.beer{
+    background: url(img/icon6.png) no-repeat center center;
+    background-size: 46px;
+    background-color: #232323;
+}
+div.icon.sauce.dice{
+    background: url(img/icon7.png) no-repeat center center;
+    background-size: 43px;
+    background-color: #232323;
+}
+div.icon.sauce.tent{
+    background: url(img/icon8.png) no-repeat center center;
+    background-size: 50px;
+    background-color: #232323;
+}
+div.icon.sauce.poke{
+    background: url(img/icon9.png) no-repeat center center;
+    background-size: 40px;
+    background-color: #232323;
+}
+div.text{
+    height: 60px;
+    background-color: #666666;
+    width:230px;
+}
+div.text p{
+    text-align: center;
+    margin-top:16px;
+    font-size: 1.9em;
+}
+div.icon.stage{
+    height: 60px;
+    width: 60px;
+    background: url(img/icon4.png) no-repeat center 20px;
+    background-size: 40px;
+    background-color: #232323;
+    
+}
+div.icon.fleche.gauche{
+    height: 60px;
+    width: 80px;
+    background: url(img/icon1.png) no-repeat center center, linear-gradient(
+    to bottom,
+    #666666,
+    #666666 50%,
+    #7f7f7f 50%,
+    #7f7f7f
+  );
+    background-size: 40px;
+    transition: 1s ease;
+}
+div.icon.fleche.droite{
+    height: 60px;
+    width: 80px;
+    background: url(img/icon3.png) no-repeat center center, linear-gradient(
+    to bottom,
+    #666666,
+    #666666 50%,
+    #7f7f7f 50%,
+    #7f7f7f
+  );
+    background-size: 40px;
+    transition: 1s ease;
+}
+div.icon.fleche.gauche:hover,div.icon.fleche.droite:hover{
+    -webkit-filter: brightness(150%);
+}
+
+/*.top-sliders div {
+    background-color: aqua;
+}*/
+
+
+
+.name.red {
+    background-color: #cb1426;
+}
+.name.purple {
+    background-color: #8640c5;
+}
+.name.purple {
+    background-color: #8640c5;
+}
+.name.blue {
+    background-color: #0072bb;
+}
+.name.green {
+    background-color: #009144;
+}
+.name.cpu {
+    background-color: #232323;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    cursor: url(img/main1.png), auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    height: 10%;
+}
+header div {
+    display: inline-block;
+    vertical-align: middle;
+}
+header .top-sliders {
+    position: relative;
+    top: 50%;
+    height: 60px;
+    transform: translateY(-50%);
+}
+header #title {
+    height: 100%;
+    width: 18%;
+}
+
+.fighter img {
+    max-width: 100%;
+    max-height: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom:20%;
+}
+.fighter .name {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    height: 20%;
+}
+.fighter .name p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%
+}
+.fighter {
+    display: inline-block;
+    width: 11.2%;
+    height: 45%;
+    margin: .5%;
+    position: relative;
+}
+.scale{
+    transition: 1s ease;
+}
+.scale:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s ease;
+    -webkit-filter: brightness(120%);
+};
+.fighter.top {
+    margin-top: .8%
+}
+.fighter#rigal, .fighter#tornier {
+    margin-left: 1%
+}
+.fighter.red {
+    background-color: #8c0d16;
+}
+.fighter.purple {
+    background-color: #652d90;
+}
+.fighter.blue {
+    background-color: #2e3192;
+}
+.fighter.green {
+    background-color: #006837;
+}
+.fighter.cpu, .fighter.select {
+    background-color: #666666;
+    height: 80%;
+    margin-top: 1.5%;
+    margin-left: 1.5%
+}
+.fighter.helper {
+    background-color: #232323;
+    background-image: url(img/texturefond.png);
+    background-size:690%;
+    height: 80%;
+    width: 15%;
+    margin-top: 1.5%;
+    margin-left: 2%;
+}
+.placeholder{
+    position: absolute;
+    text-align: center;
+    height: 80%;
+    width: 100%;
+    font-size: 1.5em;
+    
+}
+.placeholder p{
+    margin:0;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ready {
+    width: 100%;
+    position: absolute;
+    bottom: 20%;
+    text-align: center;
+    background:  linear-gradient(
+    to bottom,
+    #666666,
+    #666666 50%,
+    #7f7f7f 50%,
+    #7f7f7f
+  );
+    height: 25%;
+}
+.ready p {
+    margin: 5%;
+    font-size: 2.1em;
+}
+
+footer {
+    height: 31%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+
+header{
+    
+}
+
+header, footer {
+    background-color: #383838
+}
+
+#container {
+    background-color: #232323;
+    background-image: url(img/texturefond.png);
+    background-size: cover;
+    height: 59%;
+}
