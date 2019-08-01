@@ -350,7 +350,7 @@ header #title {
 .fighter.top {
     margin-top: .8%
 }
-.fighter#rigal, .fighter#tornier {
+.fighter#perso1, .fighter#perso9 {
     margin-left: 1%
 }
 .fighter.cpu, .fighter.select {
@@ -417,6 +417,22 @@ header #title {
     transform: translateY(-50%);
 }
 
+#select1{
+    z-index: 1;
+    max-width: 70px;
+    top: 5px;
+    left: 5px;
+    transform: translate(0, 0);
+}
+#select2{
+    z-index: 1;
+    max-width: 70px;
+    top: 5px;
+    right: 5px;
+    left: auto;
+    transform: translate(0, 0);
+}
+
 footer {
     height: 31%;
     position: fixed;
@@ -434,4 +450,8 @@ header, footer {
     background-image: url(img/texturefond.png);
     background-size: cover;
     height: 59%;
+}
+
+.shadow{
+    -webkit-filter: brightness(50%);
 }
