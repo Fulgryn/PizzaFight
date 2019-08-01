@@ -1,5 +1,6 @@
 # PizzaFight
 
+![Pizza](img/title.png)
 Work in Progress
 
 ### 🔊 SOUND WARNING 🔊
