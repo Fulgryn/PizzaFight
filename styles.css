@@ -353,6 +353,12 @@ header #title {
 .fighter#rigal, .fighter#tornier {
     margin-left: 1%
 }
+.fighter.cpu, .fighter.select {
+    background-color: #666666;
+    height: 80%;
+    margin-top: 1.5%;
+    margin-left: 1.5%
+}
 .fighter.red {
     background-color: #8c0d16;
 }
@@ -364,12 +370,6 @@ header #title {
 }
 .fighter.green {
     background-color: #006837;
-}
-.fighter.cpu, .fighter.select {
-    background-color: #666666;
-    height: 80%;
-    margin-top: 1.5%;
-    margin-left: 1.5%
 }
 .fighter.helper {
     background-color: #232323;

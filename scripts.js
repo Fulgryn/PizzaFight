@@ -3,108 +3,114 @@ $(document).ready(function() {
     $("#select").prop("volume", 0.3);
     $("#select")[0].play();
 });
+
+let player = 1;
+
+function characterSelect(perso,team){
+    var audio = $("#audio"+perso)[0];
+    audio.volume = 0.5;
+    audio.play();
+    if(player==1){
+        $('#player1 div.placeholder').remove(); 
+        $('#player1').prepend('<img src="img/'+perso+'.png">');
+        $('#player1').addClass(team);
+        player = 2;
+        $('body').css({"cursor": "url(img/main2.png), auto"});
+    }else if(player==2){
+        $('#player2 div.placeholder').remove(); 
+        $('#player2').prepend('<img src="img/'+perso+'.png">');
+        $('#player2').addClass(team);
+        player = 1;
+        $('body').css({"cursor": "url(img/main1.png), auto"});
+    }
+};
+
 $('#title').click(function(){
     $("#music").prop("muted",!$("#music").prop("muted"));
 });
 
 
 $('#rigal').click(function(){
-    var audio = $("#audioperso1")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso1','red');
 });
 $('#alame').click(function(){
-    var audio = $("#audioperso2")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso2','red');
 });
 $('#lena').click(function(){
-    var audio = $("#audioperso3")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso3','purple');
 });
 $('#tim').click(function(){
-    var audio = $("#audioperso4")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso4','purple');
 });
 $('#arthur').click(function(){
-    var audio = $("#audioperso5")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso5','blue');
 });
 $('#clement').click(function(){
-    var audio = $("#audioperso6")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso6','blue');
 });
 $('#florent').click(function(){
-    var audio = $("#audioperso7")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso7','green');
 });
 $('#agathe').click(function(){
-    var audio = $("#audioperso8")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso8','green');
 });
 $('#tornier').click(function(){
-    var audio = $("#audioperso9")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso9','red');
 });
 $('#marine').click(function(){
-    var audio = $("#audioperso10")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso10','red');
 });
 $('#niels').click(function(){
-    var audio = $("#audioperso11")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso11','purple');
 });
 $('#louac').click(function(){
-    var audio = $("#audioperso12")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso12','purple');
 });
 $('#juliette').click(function(){
-    var audio = $("#audioperso13")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso13','blue');
 });
 $('#philippe').click(function(){
-    var audio = $("#audioperso14")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso14','blue');
 });
 $('#julien').click(function(){
-    var audio = $("#audioperso15")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso15','green');
 });
 $('#cyril').click(function(){
-    var audio = $("#audioperso16")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso16','green');
 });
 $('#leo').click(function(){
-    var audio = $("#audioperso17")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso17','cpu');
 });
 $('#jules').click(function(){
-    var audio = $("#audioperso18")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso18','cpu');
 });
 $('#clementine').click(function(){
-    var audio = $("#audioperso19")[0];
-    audio.volume = 0.5;
-    audio.play();
+    characterSelect('perso19','cpu');
 });
 $('#semoule').click(function(){
-    var audio = $("#audioperso20 ")[0];
+    characterSelect('perso20','cpu');
+});
+$('#player1').click(function(){
+    var audio = $("#select")[0];
     audio.volume = 0.5;
     audio.play();
+    $('#player1 img').remove(); 
+    $('#player1').prepend('<div class="placeholder"><p>Select<br>your<br>fighter</p></div>');
+    $('#player1').removeClass();
+    $('#player1').addClass('fighter select');
+    player = 1;
+    $('body').css({"cursor": "url(img/main1.png), auto"});
 });
+$('#player2').click(function(){
+    var audio = $("#select")[0];
+    audio.volume = 0.5;
+    audio.play();
+    $('#player2 img').remove(); 
+    $('#player2').prepend('<div class="placeholder"><p>Select<br>your<br>fighter</p></div>');
+    $('#player2').removeClass();
+    $('#player2').addClass('fighter select');
+    player = 2;
+    $('body').css({"cursor": "url(img/main2.png), auto"});
+});
+
+
