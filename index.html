@@ -6,15 +6,15 @@
     <meta charset="utf-8">
 
     <title>Super Pizza Fighter XZ: Brotherhood</title>
-    <meta name="description" content="Super Pizza Fighter Brotherhood">
+    <meta name="description" content="The answer lies... in the heart of PIZZA">
     <meta name="author" content="SitePoint">
-
+    <link rel="SHORTCUT ICON" href="img/icon5.png">
     <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <div id="title"><img src="img/title.png"></div>
         <div class="top-sliders" id="time">
             <div class="icon fleche gauche"></div><!-- to remove whitespace
@@ -194,6 +194,11 @@
             <!--<img src="img/boutonreadybarre.png">-->
         </div>
     </footer>
+    <div id="default">
+        <img id="defimg" src="img/title.png">
+        <div id="deftext"><p>Avertissement: ce jeu sera mieux apprécié en plein écran!</p></div>
+    </div>
+    <iframe src="sfx/silence.mp3" allow="autoplay" id="audio"></iframe>
     <audio id="audioperso1">
         <source src="sfx/perso1.mp3" type="audio/mpeg">
     </audio>
@@ -253,6 +258,12 @@
     </audio>
     <audio id="audioperso20">
         <source src="sfx/perso20.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music" autoplay="autoplay" loop="loop">
+        <source src="sfx/music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="select">
+        <source src="sfx/selection.mp3" type="audio/mpeg">
     </audio>
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="scripts.js"></script>

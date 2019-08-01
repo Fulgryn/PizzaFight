@@ -1,3 +1,13 @@
+$(document).ready(function() {
+    $("#music").prop("volume", 0.2);
+    $("#select").prop("volume", 0.3);
+    $("#select")[0].play();
+});
+$('#title').click(function(){
+    $("#music").prop("muted",!$("#music").prop("muted"));
+});
+
+
 $('#rigal').click(function(){
     var audio = $("#audioperso1")[0];
     audio.volume = 0.5;
