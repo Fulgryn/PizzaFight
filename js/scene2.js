@@ -14,18 +14,12 @@ class scene2 extends Phaser.Scene {
             classType: Player,
             runChildUpdate: true
         });
-        if(this.data.p1wins == 1){
-            this.p1wins=1;
-        }else{
-            this.p1wins=0;
-        }
-        if(this.data.p2wins == 1){
-            this.p2wins=1;
-        }else{
-            this.p2wins=0;
-        }
-        this.player = new Player(this, 100, 450, 'dude', 'right', true, 'p1', this.p1wins);
-        this.player2 = new Player(this, 1180, 450, 'dude', 'left', true, 'p2', this.p2wins);
+        this.add.image(200, 650, 'p1hud');
+        this.add.image(197, 639, 'p1face');
+        this.add.image(1080, 650, 'p2hud');
+        this.add.image(1077, 639, 'p2face');
+        this.player = new Player(this, 200, 452, 'dude', 'r', true, 'p1');
+        this.player2 = new Player(this, 1080, 452, 'dude', 'l', true, 'p2');
         
         this.scene.launch("gamePaused",{ winner: null });
         this.scene.pause();

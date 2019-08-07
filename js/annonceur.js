@@ -8,9 +8,9 @@ class annonceur extends Phaser.Scene {
         
         this.winner = data.winner;
         this.add.image(640, 360, 'bandeau');
-        this.round1 = this.add.image(640, 360, 'round1');
-        this.round2 = this.add.image(640, 360, 'round2');
-        this.round3 = this.add.image(640, 360, 'round3');
+        this.ready = this.add.image(640, 360, 'ready');
+        this.p1wins = this.add.image(640, 360, 'p1wins');
+        this.p2wins = this.add.image(640, 360, 'p2wins');
         this.hideShit();
         
         
@@ -18,13 +18,13 @@ class annonceur extends Phaser.Scene {
     
     update(){
         if(this.winner==null){
-            this.round1.visible = true;
+            this.ready.visible = true;
             this.time.delayedCall(1000, this.fight, [], this);
         }else if(this.winner=='p1'){
-            this.round2.visible = true;
+            this.p1wins.visible = true;
             this.time.delayedCall(1000, this.redirect, [], this);
         }else if(this.winner=='p2'){
-            this.round3.visible = true;
+            this.p2wins.visible = true;
             this.time.delayedCall(1000, this.redirect, [], this);
         }
         
@@ -32,7 +32,7 @@ class annonceur extends Phaser.Scene {
     
     fight(){
         this.hideShit();
-        this.round1 = this.add.image(640, 360, 'fight');
+        this.ready = this.add.image(640, 360, 'fight');
         this.scene.resume("playGame");
         this.time.delayedCall(1000, this.endScene, [], this);
     }
@@ -42,9 +42,9 @@ class annonceur extends Phaser.Scene {
     }
     
     hideShit(){
-        this.round1.visible = false;
-        this.round2.visible = false;
-        this.round3.visible = false;
+        this.ready.visible = false;
+        this.p1wins.visible = false;
+        this.p2wins.visible = false;
     }
     
     redirect(){

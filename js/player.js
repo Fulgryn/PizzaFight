@@ -1,8 +1,6 @@
 class Player extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, img, direction, canShoot, nb, nbwins, left, up, right, down, shoot1, shoot2, shoot3){
+    constructor(scene, x, y, img, direction, canShoot, nb, sh, left, up, right, down, shoot1, shoot2, shoot3, shield){
 
-        
-        
         super(scene, x, y, img);
         this.direction = direction;
         scene.add.existing(this);
@@ -12,6 +10,8 @@ class Player extends Phaser.GameObjects.Sprite{
         this.canShoot = canShoot;
         this.nb = nb;
         this.hp = 10;
+        this.sh = 5;
+        this.activeShield = false;
         /*
         this.healthbar = this.add.sprite(100, 650, 'biere');
         this.playerhp.anims.play('rien');
@@ -28,7 +28,8 @@ class Player extends Phaser.GameObjects.Sprite{
             this.shoot1=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.NUMPAD_ONE);
             this.shoot2=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.NUMPAD_TWO);
             this.shoot3=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.NUMPAD_THREE);
-            this.healthbar = scene.add.sprite(1180, 650, 'biere');
+            this.shield=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.NUMPAD_ZERO);
+            this.healthbar = scene.add.sprite(980, 650, 'biere');
             this.healthbar.anims.play('rien');
             this.healthbar.anims.pause();
         }else if(this.nb=='p1'){
@@ -39,7 +40,8 @@ class Player extends Phaser.GameObjects.Sprite{
             this.shoot1=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.T);
             this.shoot2=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Y);
             this.shoot3=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.U);
-            this.healthbar = scene.add.sprite(100, 650, 'biere');
+            this.shield=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.G);
+            this.healthbar = scene.add.sprite(300, 650, 'biere');
             this.healthbar.anims.play('rien');
             this.healthbar.anims.pause();
         }
@@ -50,20 +52,38 @@ class Player extends Phaser.GameObjects.Sprite{
             if (this.left.isDown)
             {
                 this.body.velocity.x = -500;
-                this.direction = 'left';
-                this.anims.play('left', true);
+                this.direction = 'l';
+                if(this.body.touching.down){
+                    this.anims.play(this.nb+'left', true);
+                }else if(this.body.velocity.y < 0){
+                    this.anims.play(this.nb+'ljump', true);
+                }else{
+                    this.anims.play(this.nb+'lfall', true);
+                }
             }
             else if (this.right.isDown)
             {
                 this.body.velocity.x = 500;
-                this.direction = 'right';
-                this.anims.play('right', true);
+                this.direction = 'r';
+                if(this.body.touching.down){
+                    this.anims.play(this.nb+'right', true);
+                }else if(this.body.velocity.y < 0){
+                    this.anims.play(this.nb+'rjump', true);
+                }else{
+                    this.anims.play(this.nb+'rfall', true);
+                }
+                
             }
             else
             {
                 this.body.velocity.x = 0;
-
-                this.anims.play('turn');
+                if(this.body.velocity.y < 0){
+                    this.anims.play(this.nb+this.direction+'jump', true);
+                }else if(this.body.velocity.y > 0){
+                    this.anims.play(this.nb+this.direction+'fall', true);
+                }else{
+                    this.anims.play(this.nb+'stand');
+                }
             }
 
             if (this.up.isDown && (this.body.touching.down || this.body.wasTouching.down))
@@ -74,7 +94,7 @@ class Player extends Phaser.GameObjects.Sprite{
             {
                 this.body.velocity.y = 500;
             }
-        if (this.down.isDown && this.body.touching.down && this.body.y ==284)
+        if (this.down.isDown && this.body.touching.down && this.body.y ==185)
         {
             this.y += 10;
         }
@@ -84,21 +104,32 @@ class Player extends Phaser.GameObjects.Sprite{
         }
         if(this.shoot1.isDown){
             this.shootPizza(1);
+            if(this.body.velocity.x==0){
+                this.anims.play(this.nb+this.direction+'stoot', true);
+            }else{
+                this.anims.play(this.nb+this.direction+'shoot', true);
+            }
         }
         if(this.shoot2.isDown){
             this.shootPizza(2);
+            if(this.body.velocity.x==0){
+                this.anims.play(this.nb+this.direction+'stoot', true);
+            }else{
+                this.anims.play(this.nb+this.direction+'shoot', true);
+            }
         }
         if(this.shoot3.isDown){
             this.shootPizza(3);
+            if(this.body.velocity.x==0){
+                this.anims.play(this.nb+this.direction+'stoot', true);
+            }else{
+                this.anims.play(this.nb+this.direction+'shoot', true);
+            }
         }
-        
-        
-        /*if (this.cursors.down.isDown && this.body.touching.down && this.body.y ==284)
-        {
-            //player.body.checkCollision.down = false;
-            this.body.y += 10;
-            console.log(this.body.y);
-        }*/
+        if(this.shield.isDown && this.body.velocity.y == 0 && this.body.velocity.x == 0){
+            this.anims.play(this.nb+this.direction+'stoot', true);
+            this.activeShield = true;
+        }
     }
     
     shootPizza(pizzaType){
@@ -119,14 +150,4 @@ class Player extends Phaser.GameObjects.Sprite{
         this.scene.text = this.nb;
     }
     
-    wins(){
-        this.nbwins ++;
-    }
-    
-    
-    
-    /*canShoot(){
-        return this.canShoot;
-    }
-*/
 }

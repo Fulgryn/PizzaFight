@@ -16,7 +16,7 @@ class Pizza extends Phaser.GameObjects.Sprite{
             this.body.velocity.y =-500;
             this.body.velocity.x =500;
         }
-        if (direction == 'left'){
+        if (direction == 'l'){
             this.body.velocity.x = -this.body.velocity.x;
         }
         this.direction = direction;
@@ -27,7 +27,7 @@ class Pizza extends Phaser.GameObjects.Sprite{
     {
         super.preUpdate(time, delta);
         
-        if (this.direction == 'left'){
+        if (this.direction == 'l'){
             this.rotation -= 0.1;
         }else{
             this.rotation += 0.1;

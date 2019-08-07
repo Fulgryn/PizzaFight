@@ -3,12 +3,20 @@ $(document).ready(function() {
     $("#select").prop("volume", 0.3);
     $("#select")[0].play();
 });
-
+$date = ['9 aout','10 aout','11 aout'];
+$stage = ["Satilleu", "Loops", "Bar à Saxe", "L'Hélice", "Coloquinette", "7 rue du Lac", "Atenium", "Sco"];
 $player = 1;
 $player1 = null;
 $player2 = null;
 $norepeat = true;
 $ready = false;
+
+function next(num, p) { 
+  return p[($.inArray(num, p) + 1) % p.length]; 
+}
+function prev(num, p) { 
+  return p[($.inArray(num, p) - 1 + p.length) % p.length];
+}
 
 function characterSelect(perso,team){
     var audio = $("#audio"+perso)[0];
@@ -33,7 +41,11 @@ function characterSelect(perso,team){
     }
     if($player1 != null && $player2 != null && $norepeat){
         $('#container, footer, header').addClass('shadow');
-        $("#textbando").attr("src","./img/text" + Math.floor((Math.random()*8)+1) + ".png");
+        if($player1 == 'perso20' && $player2 == 'perso20'){
+            $("#textbando").attr("src","./img/text8.png");
+        }else{
+            $("#textbando").attr("src","./img/text" + Math.floor((Math.random()*8)+1) + ".png");
+        }
         $('#imgbando, #textbando').removeClass('hidden');
         $norepeat = false;
         $ready = true;
@@ -41,18 +53,27 @@ function characterSelect(perso,team){
 };
 
 function launchGame(player1,player2){
-        window.location = "game.html";
+        window.location = "game.html?p1="+player1+"&p2="+player2;
 }
 
+$('#time .icon.fleche.gauche').click(function(){
+    $('#time .text p').text(prev($('#time .text p').text(),$date));
+});
+$('#time .icon.fleche.droite').click(function(){
+    $('#time .text p').text(next($('#time .text p').text(),$date));
+});
+$('#stage .icon.fleche.gauche').click(function(){
+    $('#stage .text p').text(prev($('#stage .text p').text(),$stage));
+});
+$('#stage .icon.fleche.droite').click(function(){
+    $('#stage .text p').text(next($('#stage .text p').text(),$stage));
+});
 $('#imgbando, #textbando, #ready').click(function(){
     launchGame($player1,$player2);
 });
-
 $('#title').click(function(){
     $("#music").prop("muted",!$("#music").prop("muted"));
 });
-
-
 $('#perso1').click(function(){
     characterSelect('perso1','red');
 });
