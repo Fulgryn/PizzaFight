@@ -8,6 +8,7 @@ $player = 1;
 $player1 = null;
 $player2 = null;
 $norepeat = true;
+$ready = false;
 
 function characterSelect(perso,team){
     var audio = $("#audio"+perso)[0];
@@ -15,28 +16,37 @@ function characterSelect(perso,team){
     audio.play();
     if($player == 1 && $player1 == null){
         $('#player1 div.placeholder').remove(); 
-        $('#player1').prepend('<img src="img/'+perso+'.png">');
+        $('#player1').prepend('<img src="../img/'+perso+'.png">');
         $('#player1').addClass(team);
         $player = 2;
-        $('body').css({"cursor": "url(img/main2.png), auto"});
+        $('body').css({"cursor": "url(../img/main2.png), auto"});
         $player1 = perso;
-        $('#'+perso).prepend('<img id="select1" src="img/select1.png">');
+        $('#'+perso).prepend('<img id="select1" src="../img/select1.png">');
     }else if($player == 2 && $player2 == null){
         $('#player2 div.placeholder').remove(); 
-        $('#player2').prepend('<img src="img/'+perso+'.png">');
+        $('#player2').prepend('<img src="../img/'+perso+'.png">');
         $('#player2').addClass(team);
         $player = 1;
-        $('body').css({"cursor": "url(img/main1.png), auto"});
+        $('body').css({"cursor": "url(../img/main1.png), auto"});
         $player2 = perso;
-        $('#'+perso).prepend('<img id="select2" src="img/select2.png">');
+        $('#'+perso).prepend('<img id="select2" src="../img/select2.png">');
     }
     if($player1 != null && $player2 != null && $norepeat){
         $('#container, footer, header').addClass('shadow');
-        $("#textbando").attr("src","img/text" + Math.floor((Math.random()*8)+1) + ".png");
+        $("#textbando").attr("src","../img/text" + Math.floor((Math.random()*8)+1) + ".png");
         $('#imgbando, #textbando').removeClass('hidden');
         $norepeat = false;
+        $ready = true;
     }
 };
+
+function launchGame(player1,player2){
+        window.location = "game.html";
+}
+
+$('#imgbando, #textbando, #ready').click(function(){
+    launchGame($player1,$player2);
+});
 
 $('#title').click(function(){
     $("#music").prop("muted",!$("#music").prop("muted"));
@@ -112,12 +122,13 @@ $('#player1').click(function(){
     $('#player1').removeClass();
     $('#player1').addClass('fighter select');
     $player = 1;
-    $('body').css({"cursor": "url(img/main1.png), auto"});
+    $('body').css({"cursor": "url(../img/main1.png), auto"});
     $player1 = null;
     $('#select1').remove();
     $('#imgbando, #textbando').addClass('hidden');
     $('#container, footer, header').removeClass('shadow');
     $norepeat = true;
+    $ready = false;
 });
 $('#player2').click(function(){
     var audio = $("#select")[0];
@@ -125,15 +136,16 @@ $('#player2').click(function(){
     audio.play();
     $('#player2 img').remove(); 
     $('#player2').prepend('<div class="placeholder"><p>Select<br>your<br>fighter</p></div>');
-    $('#player2, body').removeClass();
+    $('#player2').removeClass();
     $('#player2').addClass('fighter select');
     $player = 2;
-    $('body').css({"cursor": "url(img/main2.png), auto"});
+    $('body').css({"cursor": "url(../img/main2.png), auto"});
     $player2 = null;
     $('#select2').remove();
     $('#imgbando, #textbando').addClass('hidden');
     $('#container, footer, header').removeClass('shadow');
     $norepeat = true;
+    $ready = false;
 });
 
 

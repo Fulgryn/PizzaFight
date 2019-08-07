@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'VCR';
-    src: url('font/VCR.ttf') format('truetype');
+    src: url('../font/VCR.ttf') format('truetype');
 }
 
 html {
@@ -32,7 +32,7 @@ img#icon_ready{
     div.icon.clock{
         height: 60px;
         width: 60px;
-        background: url(img/icon2.png) no-repeat center center;
+        background: url(../img/icon2.png) no-repeat center center;
         background-size: 40px;
         background-color: #232323;
     }
@@ -46,27 +46,27 @@ img#icon_ready{
         width: 60px;
     }
     div.icon.sauce.pizza{
-        background: url(img/icon5.png) no-repeat center center;
+        background: url(../img/icon5.png) no-repeat center center;
         background-size: 49px;
         background-color: #232323;
     }
     div.icon.sauce.beer{
-        background: url(img/icon6.png) no-repeat center center;
+        background: url(../img/icon6.png) no-repeat center center;
         background-size: 46px;
         background-color: #232323;
     }
     div.icon.sauce.dice{
-        background: url(img/icon7.png) no-repeat center center;
+        background: url(../img/icon7.png) no-repeat center center;
         background-size: 43px;
         background-color: #232323;
     }
     div.icon.sauce.tent{
-        background: url(img/icon8.png) no-repeat center center;
+        background: url(../img/icon8.png) no-repeat center center;
         background-size: 50px;
         background-color: #232323;
     }
     div.icon.sauce.poke{
-        background: url(img/icon9.png) no-repeat center center;
+        background: url(../img/icon9.png) no-repeat center center;
         background-size: 40px;
         background-color: #232323;
     }
@@ -83,7 +83,7 @@ img#icon_ready{
     div.icon.stage{
         height: 60px;
         width: 60px;
-        background: url(img/icon4.png) no-repeat center 20px;
+        background: url(../img/icon4.png) no-repeat center 20px;
         background-size: 40px;
         background-color: #232323;
 
@@ -91,7 +91,7 @@ img#icon_ready{
     div.icon.fleche.gauche{
         height: 60px;
         width: 80px;
-        background: url(img/icon1.png) no-repeat center center, linear-gradient(
+        background: url(../img/icon1.png) no-repeat center center, linear-gradient(
         to bottom,
         #666666,
         #666666 50%,
@@ -103,7 +103,7 @@ img#icon_ready{
     div.icon.fleche.droite{
         height: 60px;
         width: 80px;
-        background: url(img/icon3.png) no-repeat center center, linear-gradient(
+        background: url(../img/icon3.png) no-repeat center center, linear-gradient(
         to bottom,
         #666666,
         #666666 50%,
@@ -128,7 +128,7 @@ img#icon_ready{
     div.icon.clock{
         height: 50px;
         width: 50px;
-        background: url(img/icon2.png) no-repeat center center;
+        background: url(../img/icon2.png) no-repeat center center;
         background-size: 35px;
         background-color: #232323;
     }
@@ -142,27 +142,27 @@ img#icon_ready{
         width: 50px;
     }
     div.icon.sauce.pizza{
-        background: url(img/icon5.png) no-repeat center center;
+        background: url(../img/icon5.png) no-repeat center center;
         background-size: 42px;
         background-color: #232323;
     }
     div.icon.sauce.beer{
-        background: url(img/icon6.png) no-repeat center center;
+        background: url(../img/icon6.png) no-repeat center center;
         background-size: 39px;
         background-color: #232323;
     }
     div.icon.sauce.dice{
-        background: url(img/icon7.png) no-repeat center center;
+        background: url(../img/icon7.png) no-repeat center center;
         background-size: 39px;
         background-color: #232323;
     }
     div.icon.sauce.tent{
-        background: url(img/icon8.png) no-repeat center center;
+        background: url(../img/icon8.png) no-repeat center center;
         background-size: 46px;
         background-color: #232323;
     }
     div.icon.sauce.poke{
-        background: url(img/icon9.png) no-repeat center center;
+        background: url(../img/icon9.png) no-repeat center center;
         background-size: 35px;
         background-color: #232323;
     }
@@ -179,7 +179,7 @@ img#icon_ready{
     div.icon.stage{
         height: 50px;
         width: 50px;
-        background: url(img/icon4.png) no-repeat center 15px;
+        background: url(../img/icon4.png) no-repeat center 15px;
         background-size: 35px;
         background-color: #232323;
 
@@ -187,7 +187,7 @@ img#icon_ready{
     div.icon.fleche.gauche{
         height: 50px;
         width: 60px;
-        background: url(img/icon1.png) no-repeat center center, linear-gradient(
+        background: url(../img/icon1.png) no-repeat center center, linear-gradient(
         to bottom,
         #666666,
         #666666 50%,
@@ -199,7 +199,7 @@ img#icon_ready{
     div.icon.fleche.droite{
         height: 50px;
         width: 60px;
-        background: url(img/icon3.png) no-repeat center center, linear-gradient(
+        background: url(../img/icon3.png) no-repeat center center, linear-gradient(
         to bottom,
         #666666,
         #666666 50%,
@@ -235,7 +235,7 @@ img#icon_ready{
         height: 100%;
         width: 100%;
         background-color: #232323;
-        background-image: url(img/texturefond.png);
+        background-image: url(../img/texturefond.png);
         background-size: cover;
         
     }
@@ -290,7 +290,7 @@ body {
     left: 0;
     margin: 0;
     padding: 0;
-    cursor: url(img/main1.png), auto;
+    cursor: url(../img/main1.png), auto;
 }
 
 header {
@@ -373,7 +373,7 @@ header #title {
 }
 .fighter.helper {
     background-color: #232323;
-    background-image: url(img/texturefond.png);
+    background-image: url(../img/texturefond.png);
     background-size:690%;
     height: 80%;
     width: 15%;
@@ -447,7 +447,7 @@ header, footer {
 
 #container {
     background-color: #232323;
-    background-image: url(img/texturefond.png);
+    background-image: url(../img/texturefond.png);
     background-size: cover;
     height: 59%;
 }
