@@ -23,8 +23,8 @@ class scene1 extends Phaser.Scene {
         
         
         this.load.spritesheet('dude', 
-            'assets/sprite2.png',
-            { frameWidth: 80.13, frameHeight: 147 }
+            'assets/sprites2-02.png',
+            { frameWidth: 80.05, frameHeight: 146.5 }
         );
         this.load.spritesheet('explosion', 
             'assets/explosion.png',
@@ -33,6 +33,10 @@ class scene1 extends Phaser.Scene {
         this.load.spritesheet('biere', 
             'assets/spritevie.png',
             { frameWidth: 60, frameHeight: 108 }
+        );
+        this.load.spritesheet('couillacao', 
+            'assets/spriteshield.png',
+            { frameWidth: 46, frameHeight: 52 }
         );
         
     }
@@ -100,63 +104,87 @@ class scene1 extends Phaser.Scene {
             frames: [ { key: 'dude', frame: 12 } ],
             frameRate: 20
         });
+        this.anims.create({
+            key: 'p1shield',
+            frames: [ { key: 'dude', frame: 16 } ],
+            frameRate: 20,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'p1shieldhit',
+            frames: [ { key: 'dude', frame: 15 } ],
+            frameRate: 20,
+            repeat: -1
+        });
         // PLAYER 2
         this.anims.create({
             key: 'p2left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 19, end: 21 }),
+            frames: this.anims.generateFrameNumbers('dude', { start: 21, end: 22 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p2stand',
-            frames: [ { key: 'dude', frame: 22 } ],
+            frames: [ { key: 'dude', frame: 24 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2right',
-            frames: this.anims.generateFrameNumbers('dude', { start: 23, end: 25 }),
+            frames: this.anims.generateFrameNumbers('dude', { start: 25, end: 27 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p2rjump',
-            frames: [ { key: 'dude', frame: 28 } ],
+            frames: [ { key: 'dude', frame: 30 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2rfall',
-            frames: [ { key: 'dude', frame: 29 } ],
+            frames: [ { key: 'dude', frame: 31 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2ljump',
-            frames: [ { key: 'dude', frame: 16 } ],
-            frameRate: 20
-        });
-        this.anims.create({
-            key: 'p2lfall',
-            frames: [ { key: 'dude', frame: 15 } ],
-            frameRate: 20
-        });
-        this.anims.create({
-            key: 'p2lshoot',
             frames: [ { key: 'dude', frame: 18 } ],
             frameRate: 20
         });
         this.anims.create({
-            key: 'p2lstoot',
+            key: 'p2lfall',
             frames: [ { key: 'dude', frame: 17 } ],
             frameRate: 20
         });
         this.anims.create({
+            key: 'p2lshoot',
+            frames: [ { key: 'dude', frame: 20 } ],
+            frameRate: 20
+        });
+        this.anims.create({
+            key: 'p2lstoot',
+            frames: [ { key: 'dude', frame: 19 } ],
+            frameRate: 20
+        });
+        this.anims.create({
             key: 'p2rshoot',
-            frames: [ { key: 'dude', frame: 26 } ],
+            frames: [ { key: 'dude', frame: 28 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2rstoot',
-            frames: [ { key: 'dude', frame: 27 } ],
+            frames: [ { key: 'dude', frame: 29 } ],
             frameRate: 20
+        });
+        this.anims.create({
+            key: 'p2shield',
+            frames: [ { key: 'dude', frame: 33 } ],
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'p2shieldhit',
+            frames: [ { key: 'dude', frame: 32 } ],
+            frameRate: 20,
+            repeat: -1
         });
         //autres
         this.anims.create({
@@ -169,7 +197,13 @@ class scene1 extends Phaser.Scene {
         
         this.anims.create({
             key: 'rien',
-            frames: this.anims.generateFrameNumbers('biere', { start: 0, end: 11 })
+            frames: this.anims.generateFrameNumbers('biere', { start: 0, end: 11 }),
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'shbar',
+            frames: this.anims.generateFrameNumbers('couillacao', { start: 0, end: 6 }),
+            repeat: -1
         });
         
     }

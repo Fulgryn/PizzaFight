@@ -76,6 +76,18 @@ class scene2 extends Phaser.Scene {
         }else if(this.text=='p2'){
             this.text = 'sauce';
             this.player2.healthbar.anims.nextFrame();
+        }else if(this.text=='shp1'){
+            this.text = 'sauce';
+            this.player.shieldbar.anims.nextFrame();
+        }else if(this.text=='shp2'){
+            this.text = 'sauce';
+            this.player2.shieldbar.anims.nextFrame();
+        }else if(this.text=='rshp1'){
+            this.text = 'sauce';
+            this.player.shieldbar.anims.nextFrame();
+        }else if(this.text=='rshp2'){
+            this.text = 'sauce';
+            this.player2.shieldbar.anims.nextFrame();
         }
         if(this.player.hp == 0 || this.player2.hp == 0){
             if(this.player.hp == 0){

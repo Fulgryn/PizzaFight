@@ -32,6 +32,9 @@ class Player extends Phaser.GameObjects.Sprite{
             this.healthbar = scene.add.sprite(980, 650, 'biere');
             this.healthbar.anims.play('rien');
             this.healthbar.anims.pause();
+            this.shieldbar = scene.add.sprite(920, 678, 'couillacao');
+            this.shieldbar.anims.play('shbar');
+            this.shieldbar.anims.pause();
         }else if(this.nb=='p1'){
             this.left=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Q);
             this.up=scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
@@ -44,6 +47,9 @@ class Player extends Phaser.GameObjects.Sprite{
             this.healthbar = scene.add.sprite(300, 650, 'biere');
             this.healthbar.anims.play('rien');
             this.healthbar.anims.pause();
+            this.shieldbar = scene.add.sprite(360, 678, 'couillacao');
+            this.shieldbar.anims.play('shbar');
+            this.shieldbar.anims.pause();
         }
     }
     
@@ -94,7 +100,7 @@ class Player extends Phaser.GameObjects.Sprite{
             {
                 this.body.velocity.y = 500;
             }
-        if (this.down.isDown && this.body.touching.down && this.body.y ==185)
+        if (this.down.isDown && this.body.touching.down && this.body.y ==185.5)
         {
             this.y += 10;
         }
@@ -126,15 +132,19 @@ class Player extends Phaser.GameObjects.Sprite{
                 this.anims.play(this.nb+this.direction+'shoot', true);
             }
         }
-        if(this.shield.isDown && this.body.velocity.y == 0 && this.body.velocity.x == 0){
-            this.anims.play(this.nb+this.direction+'stoot', true);
+        if(this.shield.isDown && this.body.velocity.y == 0 && this.body.velocity.x == 0 && this.sh > 0){
+            this.play(this.nb+'shield', true);
             this.activeShield = true;
+        }else{
+            this.activeShield = false;
         }
+        
+        
     }
     
     shootPizza(pizzaType){
         
-        if(this.canShoot){
+        if(this.canShoot && this.activeShield == false){
             var pizza = new Pizza(this.scene, this.x, this.y, pizzaType, this.direction);
             this.canShoot = false;
             this.timerPizza = this.scene.time.delayedCall(500, this.timerOver, [], this);
@@ -145,9 +155,24 @@ class Player extends Phaser.GameObjects.Sprite{
         this.canShoot = true;
     }
     
+    refillShield(){
+        this.sh=5;
+        this.scene.text = 'rsh'+this.nb;
+    }
+    
     loseHp(){
-        this.hp -= 1;
-        this.scene.text = this.nb;
+        if(this.activeShield){
+            this.sh -= 1;
+            this.play(this.nb+'shieldhit', true);
+            this.scene.text = 'sh'+this.nb;
+            if(this.sh == 0){
+                this.timerSield = this.scene.time.delayedCall(10000, this.refillShield, [], this);
+            }
+        }else{
+            this.hp -= 1;
+            this.scene.text = this.nb;
+        }
+        
     }
     
 }
