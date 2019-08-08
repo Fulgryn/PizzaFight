@@ -222,7 +222,7 @@ img#icon_ready{
     }
 }
 
-@media only screen and (max-width: 1467px) {
+@media only screen and (max-width: 1333px) {
     #container, footer{
         display:none;
     }
@@ -354,7 +354,7 @@ header #title {
     margin-top: .8%
 }
 .fighter#perso1, .fighter#perso9 {
-    margin-left: 1%
+    margin-left: 1.7%
 }
 #player1{
     margin-left:4.8%
