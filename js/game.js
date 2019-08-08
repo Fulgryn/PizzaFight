@@ -17,8 +17,9 @@ function getQueryVariable(variable) {
 
 
 var gameSettings = {
-  player1: getQueryVariable('p1'),
-  player2: getQueryVariable('p2')
+    player1: getQueryVariable('p1'),
+    player2: getQueryVariable('p2'),
+    stage: 'stage'+getQueryVariable('s')
 }
 
 let config = {

@@ -5,9 +5,16 @@ class scene1 extends Phaser.Scene {
 
     preload ()
     {
-        this.load.image('background', 'assets/stage1.png');
-        this.load.image('ground', 'assets/platform1.png');
-        this.load.image('platform', 'assets/platform2.png');
+        this.load.image('background', 'assets/'+gameSettings.stage+'.png');
+        this.load.image('ground', 'assets/groundst1.png');
+        this.load.image('ground2', 'assets/groundst2.png');
+        this.load.image('ground31', 'assets/ground1st3.png');
+        this.load.image('ground32', 'assets/ground2st3.png');
+        this.load.image('ground4', 'assets/groundst4.png');
+        this.load.image('platform', 'assets/platformst1.png');
+        this.load.image('platform2', 'assets/platformst2.png');
+        this.load.image('platform3', 'assets/platformst3.png');
+        this.load.image('platform4', 'assets/platformst4.png');
         this.load.image('pizza1', 'assets/couppizza1.png');
         this.load.image('pizza2', 'assets/couppizza2.png');
         this.load.image('pizza3', 'assets/couppizza3.png');
@@ -22,8 +29,12 @@ class scene1 extends Phaser.Scene {
         this.load.image('p2face', 'assets/'+gameSettings.player2+'.png');
         
         
-        this.load.spritesheet('dude', 
-            'assets/sprites2-02.png',
+        this.load.spritesheet('p1', 
+            'assets/sprites'+gameSettings.player1+'.png',
+            { frameWidth: 80.05, frameHeight: 146.5 }
+        );
+        this.load.spritesheet('p2', 
+            'assets/sprites'+gameSettings.player2+'.png',
             { frameWidth: 80.05, frameHeight: 146.5 }
         );
         this.load.spritesheet('explosion', 
@@ -49,140 +60,140 @@ class scene1 extends Phaser.Scene {
         // PLAYER 1
         this.anims.create({
             key: 'p1left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 4, end: 6 }),
+            frames: this.anims.generateFrameNumbers('p1', { start: 4, end: 6 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p1stand',
-            frames: [ { key: 'dude', frame: 7 } ],
+            frames: [ { key: 'p1', frame: 7 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1right',
-            frames: this.anims.generateFrameNumbers('dude', { start: 8, end: 10 }),
+            frames: this.anims.generateFrameNumbers('p1', { start: 8, end: 10 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p1rjump',
-            frames: [ { key: 'dude', frame: 13 } ],
+            frames: [ { key: 'p1', frame: 13 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1rfall',
-            frames: [ { key: 'dude', frame: 14 } ],
+            frames: [ { key: 'p1', frame: 14 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1ljump',
-            frames: [ { key: 'dude', frame: 1 } ],
+            frames: [ { key: 'p1', frame: 1 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1lfall',
-            frames: [ { key: 'dude', frame: 0 } ],
+            frames: [ { key: 'p1', frame: 0 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1lshoot',
-            frames: [ { key: 'dude', frame: 3 } ],
+            frames: [ { key: 'p1', frame: 3 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1lstoot',
-            frames: [ { key: 'dude', frame: 2 } ],
+            frames: [ { key: 'p1', frame: 2 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1rshoot',
-            frames: [ { key: 'dude', frame: 11 } ],
+            frames: [ { key: 'p1', frame: 11 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1rstoot',
-            frames: [ { key: 'dude', frame: 12 } ],
+            frames: [ { key: 'p1', frame: 12 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p1shield',
-            frames: [ { key: 'dude', frame: 16 } ],
+            frames: [ { key: 'p1', frame: 16 } ],
             frameRate: 20,
             repeat: -1
         });
         this.anims.create({
             key: 'p1shieldhit',
-            frames: [ { key: 'dude', frame: 15 } ],
+            frames: [ { key: 'p1', frame: 15 } ],
             frameRate: 20,
             repeat: -1
         });
         // PLAYER 2
         this.anims.create({
             key: 'p2left',
-            frames: this.anims.generateFrameNumbers('dude', { start: 21, end: 22 }),
+            frames: this.anims.generateFrameNumbers('p2', { start: 21, end: 23 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p2stand',
-            frames: [ { key: 'dude', frame: 24 } ],
+            frames: [ { key: 'p2', frame: 24 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2right',
-            frames: this.anims.generateFrameNumbers('dude', { start: 25, end: 27 }),
+            frames: this.anims.generateFrameNumbers('p2', { start: 25, end: 27 }),
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p2rjump',
-            frames: [ { key: 'dude', frame: 30 } ],
+            frames: [ { key: 'p2', frame: 30 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2rfall',
-            frames: [ { key: 'dude', frame: 31 } ],
+            frames: [ { key: 'p2', frame: 31 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2ljump',
-            frames: [ { key: 'dude', frame: 18 } ],
+            frames: [ { key: 'p2', frame: 18 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2lfall',
-            frames: [ { key: 'dude', frame: 17 } ],
+            frames: [ { key: 'p2', frame: 17 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2lshoot',
-            frames: [ { key: 'dude', frame: 20 } ],
+            frames: [ { key: 'p2', frame: 20 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2lstoot',
-            frames: [ { key: 'dude', frame: 19 } ],
+            frames: [ { key: 'p2', frame: 19 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2rshoot',
-            frames: [ { key: 'dude', frame: 28 } ],
+            frames: [ { key: 'p2', frame: 28 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2rstoot',
-            frames: [ { key: 'dude', frame: 29 } ],
+            frames: [ { key: 'p2', frame: 29 } ],
             frameRate: 20
         });
         this.anims.create({
             key: 'p2shield',
-            frames: [ { key: 'dude', frame: 33 } ],
+            frames: [ { key: 'p2', frame: 33 } ],
             frameRate: 10,
             repeat: -1
         });
         this.anims.create({
             key: 'p2shieldhit',
-            frames: [ { key: 'dude', frame: 32 } ],
+            frames: [ { key: 'p2', frame: 32 } ],
             frameRate: 20,
             repeat: -1
         });

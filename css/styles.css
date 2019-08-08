@@ -356,11 +356,15 @@ header #title {
 .fighter#perso1, .fighter#perso9 {
     margin-left: 1%
 }
+#player1{
+    margin-left:4.8%
+}
 .fighter.cpu, .fighter.select {
     background-color: #666666;
     height: 80%;
     margin-top: 1.5%;
-    margin-left: 1.5%
+    margin-left: 1%;
+    margin-right: 1%;
 }
 .fighter.red {
     background-color: #8c0d16;
@@ -392,27 +396,6 @@ header #title {
     
 }
 .placeholder p{
-    margin:0;
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.ready {
-    width: 100%;
-    position: absolute;
-    bottom: 20%;
-    text-align: center;
-    background:  linear-gradient(
-    to bottom,
-    #666666,
-    #666666 50%,
-    #7f7f7f 50%,
-    #7f7f7f
-  );
-    height: 25%;
-}
-.ready p {
     margin:0;
     position: absolute;
     width: 100%;

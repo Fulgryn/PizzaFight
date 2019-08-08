@@ -7,19 +7,39 @@ class scene2 extends Phaser.Scene {
         this.text = 'sauce';
         this.add.image(640, 360, 'background');
         this.platforms = this.physics.add.staticGroup();
-        this.platforms.create(640, 553, 'ground');
-        this.platforms.create(344, 346, 'platform');
-        this.platforms.create(936, 346, 'platform');   
         this.players = this.add.group({
-            classType: Player,
-            runChildUpdate: true
-        });
+                classType: Player,
+                runChildUpdate: true
+            });
+        if(gameSettings.stage=='stage1'){
+            this.platforms.create(640, 553, 'ground');
+            this.platforms.create(344, 346, 'platform');
+            this.platforms.create(936, 346, 'platform');   
+            this.player = new Player(this, 200, 452, 'p1', 'r', true, 'p1');
+            this.player2 = new Player(this, 1080, 452, 'p2', 'l', true, 'p2');
+        }else if(gameSettings.stage=='stage2'){
+            this.platforms.create(250, 484, 'ground2');
+            this.platforms.create(1030, 484, 'ground2');
+            this.platforms.create(640, 249, 'platform2'); 
+            this.player = new Player(this, 200, 372, 'p1', 'r', true, 'p1');
+            this.player2 = new Player(this, 1080, 372, 'p2', 'l', true, 'p2');
+        }else if(gameSettings.stage=='stage3'){
+            this.platforms.create(267, 554, 'ground31');
+            this.platforms.create(782, 554, 'ground32');
+            this.platforms.create(532, 346, 'platform3'); 
+            this.player = new Player(this, 150, 453, 'p1', 'r', true, 'p1');
+            this.player2 = new Player(this, 880, 453, 'p2', 'l', true, 'p2');
+        }else if(gameSettings.stage=='stage4'){
+            this.platforms.create(640, 665, 'ground4');
+            this.platforms.create(360, 443, 'platform4');
+            this.platforms.create(922, 443, 'platform4'); 
+            this.player = new Player(this, 200, 564, 'p1', 'r', true, 'p1');
+            this.player2 = new Player(this, 1080, 564, 'p2', 'l', true, 'p2');
+        }
         this.add.image(200, 650, 'p1hud');
-        this.add.image(197, 639, 'p1face');
-        this.add.image(1080, 650, 'p2hud');
-        this.add.image(1077, 639, 'p2face');
-        this.player = new Player(this, 200, 452, 'dude', 'r', true, 'p1');
-        this.player2 = new Player(this, 1080, 452, 'dude', 'l', true, 'p2');
+            this.add.image(197, 639, 'p1face');
+            this.add.image(1080, 650, 'p2hud');
+            this.add.image(1077, 639, 'p2face');
         
         this.scene.launch("gamePaused",{ winner: null });
         this.scene.pause();

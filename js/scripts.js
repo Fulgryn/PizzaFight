@@ -4,7 +4,7 @@ $(document).ready(function() {
     $("#select")[0].play();
 });
 $date = ['9 aout','10 aout','11 aout'];
-$stage = ["Satilleu", "Loops", "Bar à Saxe", "L'Hélice", "Coloquinette", "7 rue du Lac", "Atenium", "Sco"];
+$stage = ["Satilleu", "IUT", "Atenium", "7 rue du Lac"];
 $player = 1;
 $player1 = null;
 $player2 = null;
@@ -53,7 +53,14 @@ function characterSelect(perso,team){
 };
 
 function launchGame(player1,player2){
-        window.location = "game.html?p1="+player1+"&p2="+player2;
+    if(player1 == 'persorandom'){
+        player1 = 'perso'+Math.floor((Math.random()*21)+1);
+    }
+    if(player2 == 'persorandom'){
+        player2 = 'perso'+Math.floor((Math.random()*21)+1);
+    }
+    $s = $stage.indexOf($('#stage .text p').text())+1;
+    window.location = "game.html?p1="+player1+"&p2="+player2+"&s="+$s;
 }
 
 $('#time .icon.fleche.gauche').click(function(){
@@ -68,7 +75,7 @@ $('#stage .icon.fleche.gauche').click(function(){
 $('#stage .icon.fleche.droite').click(function(){
     $('#stage .text p').text(next($('#stage .text p').text(),$stage));
 });
-$('#imgbando, #textbando, #ready').click(function(){
+$('#imgbando, #textbando').click(function(){
     launchGame($player1,$player2);
 });
 $('#title').click(function(){
@@ -133,6 +140,9 @@ $('#perso19').click(function(){
 });
 $('#perso20').click(function(){
     characterSelect('perso20','cpu');
+});
+$('#persorandom').click(function(){
+    characterSelect('persorandom','cpu');
 });
 $('#player1').click(function(){
     var audio = $("#select")[0];
