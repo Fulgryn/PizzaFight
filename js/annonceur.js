@@ -11,21 +11,22 @@ class annonceur extends Phaser.Scene {
         this.ready = this.add.image(640, 360, 'ready');
         this.p1wins = this.add.image(640, 360, 'p1wins');
         this.p2wins = this.add.image(640, 360, 'p2wins');
-        this.hideShit();
-        
-        
+        this.hideShit();   
     }
     
     update(){
         if(this.winner==null){
             this.ready.visible = true;
             this.time.delayedCall(1000, this.fight, [], this);
+            
         }else if(this.winner=='p1'){
             this.p1wins.visible = true;
-            this.time.delayedCall(1000, this.redirect, [], this);
+            this.scene.launch("gameSound", { son: 'p1wins' });
+            this.time.delayedCall(1600, this.redirect, [], this);
         }else if(this.winner=='p2'){
             this.p2wins.visible = true;
-            this.time.delayedCall(1000, this.redirect, [], this);
+            this.scene.launch("gameSound", { son: 'p2wins' });
+            this.time.delayedCall(1600, this.redirect, [], this);
         }
         
     }

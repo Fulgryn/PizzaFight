@@ -1,8 +1,3 @@
-$(document).ready(function() {
-    console.log(getQueryVariable('p1'));
-    console.log(getQueryVariable('p2'));
-});
-
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split('&');

@@ -2,6 +2,7 @@ $(document).ready(function() {
     $("#music").prop("volume", 0.2);
     $("#select").prop("volume", 0.3);
     $("#select")[0].play();
+    
 });
 $date = ['9 aout','10 aout','11 aout'];
 $stage = ["Satilleu", "IUT", "Atenium", "7 rue du Lac"];
@@ -10,6 +11,8 @@ $player1 = null;
 $player2 = null;
 $norepeat = true;
 $ready = false;
+
+
 
 function next(num, p) { 
   return p[($.inArray(num, p) + 1) % p.length]; 
@@ -80,6 +83,7 @@ $('#imgbando, #textbando').click(function(){
 });
 $('#title').click(function(){
     $("#music").prop("muted",!$("#music").prop("muted"));
+    $("#music")[0].play();
 });
 $('#perso1').click(function(){
     characterSelect('perso1','red');

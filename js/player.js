@@ -51,6 +51,11 @@ class Player extends Phaser.GameObjects.Sprite{
             this.shieldbar.anims.play('shbar');
             this.shieldbar.anims.pause();
         }
+        this.jump = this.scene.sound.add('jump',{ volume: 0.3});
+        this.throw = this.scene.sound.add('throw',{ volume: 0.3});
+        this.hit1 = this.scene.sound.add('hit1');
+        this.hit2 = this.scene.sound.add('hit2');
+    
     }
     
     update()
@@ -95,6 +100,7 @@ class Player extends Phaser.GameObjects.Sprite{
             if (this.up.isDown && (this.body.touching.down || this.body.wasTouching.down))
             {
                 this.body.velocity.y = -600;
+                this.throw.play();
             }
             else if (this.down.isDown)
             {
@@ -145,6 +151,7 @@ class Player extends Phaser.GameObjects.Sprite{
     shootPizza(pizzaType){
         
         if(this.canShoot && this.activeShield == false){
+            this.jump.play();
             var pizza = new Pizza(this.scene, this.x, this.y, pizzaType, this.direction);
             this.canShoot = false;
             this.timerPizza = this.scene.time.delayedCall(500, this.timerOver, [], this);
@@ -162,6 +169,7 @@ class Player extends Phaser.GameObjects.Sprite{
     
     loseHp(){
         if(this.activeShield){
+            this.hit2.play();
             this.sh -= 1;
             this.play(this.nb+'shieldhit', true);
             this.scene.text = 'sh'+this.nb;
@@ -169,6 +177,7 @@ class Player extends Phaser.GameObjects.Sprite{
                 this.timerSield = this.scene.time.delayedCall(10000, this.refillShield, [], this);
             }
         }else{
+            this.hit1.play();
             this.hp -= 1;
             this.scene.text = this.nb;
         }

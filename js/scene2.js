@@ -11,6 +11,11 @@ class scene2 extends Phaser.Scene {
                 classType: Player,
                 runChildUpdate: true
             });
+        
+        this.pret = this.sound.add('pret');
+        this.p1wins = this.sound.add('p1wins');
+        this.p2wins = this.sound.add('p2wins');
+        this.music = this.sound.add('music',{ volume: 0.2, loop: true});
         if(gameSettings.stage=='stage1'){
             this.platforms.create(640, 553, 'ground');
             this.platforms.create(344, 346, 'platform');
@@ -40,9 +45,11 @@ class scene2 extends Phaser.Scene {
             this.add.image(197, 639, 'p1face');
             this.add.image(1080, 650, 'p2hud');
             this.add.image(1077, 639, 'p2face');
-        
+        this.music.play();
+        this.pret.play();
         this.scene.launch("gamePaused",{ winner: null });
         this.scene.pause();
+        
         
         //this.player = this.physics.add.Player(100, 450, 'dude', 'right');
 
@@ -111,9 +118,11 @@ class scene2 extends Phaser.Scene {
         }
         if(this.player.hp == 0 || this.player2.hp == 0){
             if(this.player.hp == 0){
+                this.p2wins.play();
                 this.scene.launch("gamePaused", { winner: 'p2' });
             }
             if(this.player2.hp == 0){
+                this.p1wins.play();
                 this.scene.launch("gamePaused", { winner: 'p1' });
             }
             this.scene.pause();

@@ -27,7 +27,14 @@ class scene1 extends Phaser.Scene {
         this.load.image('p2hud', 'assets/hudplayer2.png');
         this.load.image('p1face', 'assets/'+gameSettings.player1+'.png');
         this.load.image('p2face', 'assets/'+gameSettings.player2+'.png');
-        
+        this.load.audio('pret', 'sfx/rdy.mp3');
+        this.load.audio('p1wins', 'sfx/p1wins.mp3');
+        this.load.audio('p2wins', 'sfx/p2wins.mp3');
+        this.load.audio('jump', 'sfx/jump.mp3');
+        this.load.audio('throw', 'sfx/throw.mp3');
+        this.load.audio('hit1', 'sfx/hit1.mp3');
+        this.load.audio('hit2', 'sfx/hit2.mp3');
+        this.load.audio('music', 'sfx/musicjeu.mp3');
         
         this.load.spritesheet('p1', 
             'assets/sprites'+gameSettings.player1+'.png',
